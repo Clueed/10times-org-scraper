@@ -13,6 +13,9 @@ beautifulsoup4 = "^4.11.1"
 pandas = "^1.5.2"
 
 
+[tool.poetry.group.dev.dependencies]
+black = {version = "^23.1a1", allow-prereleases = true}
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
