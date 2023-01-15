@@ -65,12 +65,12 @@ def get_event_info(event_url: str, verbose=False):
 
     # Possible other info available: date, location, category & type, frequency, estimated turnout
 
-    org = soup.find(id="org-name").next_element.text
+    org_name = soup.find(id="org-name").next_element.text
     title = soup.find("h1").text
 
-    org_domain = get_org_domain(soup, title, verbose=verbose)
+    org_domain = get_org_domain(soup, org_name, verbose=verbose)
 
-    return {"org": org, "title": title, "org_domain": org_domain}
+    return {"org": org_name, "title": title, "org_domain": org_domain}
 
 
 def save_as_csv(events: dict):
@@ -100,5 +100,5 @@ def index_events(index_url: str, sample_size: int, save_csv=False, verbose=False
 
 
 events_sample = index_events(
-    "https://10times.com/events", sample_size=100, save_csv=True, verbose=True
+    "https://10times.com/events", sample_size=2, save_csv=True, verbose=True
 )
